@@ -13,6 +13,9 @@
 
 Route::get('/', 'PagesController@inicio')->name('inicio');
 
+Route::get('/{id}', 'PagesController@detalle')->name('notas.detalle');
+
+
 Route::get('/fotos', 'PagesController@fotos')->name('fotos');
 
 Route::get('/blog', 'PagesController@blog')->name('blog');
