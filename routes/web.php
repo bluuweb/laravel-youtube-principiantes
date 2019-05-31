@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'PagesController@inicio');
+Route::get('/', 'PagesController@inicio')->name('inicio');
 
 Route::get('/fotos', 'PagesController@fotos')->name('fotos');
 
