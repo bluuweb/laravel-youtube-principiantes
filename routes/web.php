@@ -11,21 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PagesController@inicio');
 
-Route::get('/fotos', function(){
-    return view('fotos');
-})->name('fotos');
+Route::get('/fotos', 'PagesController@fotos')->name('fotos');
 
-Route::get('/blog', function(){
-    return view('blog');
-})->name('blog');
+Route::get('/blog', 'PagesController@blog')->name('blog');
 
-Route::get('/nosotros/{nombre?}', function( $nombre = null ){
-
-    $equipo = ['Ignacio', 'Juanito', 'Pedrito'];
-
-    return view('nosotros', compact('equipo', 'nombre'));
-})->name('nosotros');
+Route::get('/nosotros/{nombre?}', 'PagesController@nosotros')->name('nosotros');
