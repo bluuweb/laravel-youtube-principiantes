@@ -13,7 +13,9 @@
 
 Route::get('/', 'PagesController@inicio')->name('inicio');
 
-Route::get('/{id}', 'PagesController@detalle')->name('notas.detalle');
+Route::get('/detalle/{id}', 'PagesController@detalle')->name('notas.detalle');
+
+Route::post('/', 'PagesController@crear' )->name('notas.crear');
 
 
 Route::get('/fotos', 'PagesController@fotos')->name('fotos');

@@ -2,6 +2,20 @@
 
 @section('seccion')
     <h1>Notas</h1>
+
+    @if (session('mensaje'))
+        <div class="alert alert-success">
+            {{ session('mensaje') }}
+        </div>
+    @endif
+
+    <form action="{{ route('notas.crear') }}" method="POST">
+        @csrf
+        <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2">
+        <input type="text" name="descripcion" placeholder="Descripcion" class="form-control mb-2">
+        <button class="btn btn-primary btn-block" type="submit">Agregar</button>
+    </form>
+
     <table class="table">
         <thead>
           <tr>

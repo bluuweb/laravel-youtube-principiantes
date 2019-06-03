@@ -22,6 +22,19 @@ class PagesController extends Controller
         return view('notas.detalle', compact('nota'));
     }
 
+    public function crear(Request $request){
+        // return $request->all();
+
+        $notaNueva = new App\Nota;
+        $notaNueva->nombre = $request->nombre;
+        $notaNueva->descripcion = $request->descripcion;
+
+        $notaNueva->save();
+
+        return back()->with('mensaje', 'Nota agregada!');
+
+    }
+
     public function fotos(){
         return view('fotos');
     }
