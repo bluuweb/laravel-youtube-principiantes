@@ -11,8 +11,21 @@
 
     <form action="{{ route('notas.crear') }}" method="POST">
         @csrf
-        <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2">
-        <input type="text" name="descripcion" placeholder="Descripcion" class="form-control mb-2">
+
+        @error('nombre')
+            <div class="alert alert-danger">
+                El nombre es obligatorio
+            </div>
+        @enderror
+
+        @error('descripcion')
+            <div class="alert alert-danger">
+                La descripción es obligatoria
+            </div>
+        @enderror
+
+        <input type="text" name="nombre" placeholder="Nombre" class="form-control mb-2" value="{{ old('nombre') }}">
+        <input type="text" name="descripcion" placeholder="Descripcion" class="form-control mb-2" value="{{ old('descripcion') }}">
         <button class="btn btn-primary btn-block" type="submit">Agregar</button>
     </form>
 
