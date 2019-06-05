@@ -47,6 +47,11 @@ class PagesController extends Controller
 
     public function update(Request $request, $id){
 
+        $request->validate([
+            'nombre' => 'required',
+            'descripcion' => 'required'
+        ]);
+
         $notaUpdate = App\Nota::findOrFail($id);
         $notaUpdate->nombre = $request->nombre;
         $notaUpdate->descripcion = $request->descripcion;
