@@ -9,7 +9,7 @@ class PagesController extends Controller
 {
     public function inicio(){
 
-        $notas = App\Nota::all();
+        $notas = App\Nota::paginate(3);
 
         return view('welcome', compact('notas'));
     }
